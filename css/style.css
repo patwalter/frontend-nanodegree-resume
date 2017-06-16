@@ -14,6 +14,11 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+img{ 
+  max-width: 400px;
+  max-height: 400px;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -26,7 +31,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: white;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +39,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #fff;
   line-height: 29px;
   padding: 10px;
 }
@@ -42,14 +47,14 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #fff;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: #fff;
   line-height: 17px;
 }
 
@@ -65,7 +70,7 @@ h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #fff;
   line-height: 16px;
   float: left;
 }
@@ -73,7 +78,7 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #fff;
   line-height: 16px;
   float: right;
 
@@ -86,7 +91,7 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #fff;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -100,7 +105,7 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: darkslategrey;
   display: none;
 }
 
@@ -109,13 +114,15 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  color:darkslategrey;
 }
 
 .white-text {
   font-weight: bold;
   color: #fff;
 }
+
+
 
 .gray {
   background-color: #f3f3f3;
@@ -129,7 +136,19 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #4ABDAC;
+}
+
+#workExperience {
+  background-color: #FC4A1A
+}
+
+#projects {
+  background-color: #f7b733
+}
+
+#education{
+  background-color: #DFDce7;
 }
 
 .flex-box {
