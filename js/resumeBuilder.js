@@ -18,7 +18,7 @@ This is empty on purpose! Your code to build the resume will go here.
          "email":"patwalter@mac.com", 
          "mobile": "586-382-6390",
          "github": "patwalter",
-         "location": "Detroit",
+         "location": "Detroit MI, USA",
         },
     "welcomeMesg":"Welcome to Pat Walter's interactive application!  Feel free to look around and contact Pat for any further information you may require!",
     "skills": [
@@ -99,19 +99,22 @@ var work = {
         "employer" : "Beaumont",
         "yearsWorked" : "2014 - Present",
         "city" : "Rochester Hills",
-        "description" : "Support various specialties including internal medicine, geriatrics, thoracic surgery and infectious disease within a single multi-specialty environment, Maintain a smooth patient flow and support within the practice in a manner that is friendly, inviting and focused on patient’s needs and to insure patient satisfaction.  Strong working knowledge of EMR (Epic).  Perform charge entry of CPT and ICD-10 codes."
+        "description" : "Support various specialties including internal medicine, geriatrics, thoracic surgery and infectious disease within a single multi-specialty environment, Maintain a smooth patient flow and support within the practice in a manner that is friendly, inviting and focused on patient’s needs and to insure patient satisfaction.  Strong working knowledge of EMR (Epic).  Perform charge entry of CPT and ICD-10 codes.",
+        "url":"https://www.baker.edu/campus-locations/michigan/owosso/"
        },
        {"title": "Persoanl Trainer",
        "employer": "LA Fitness",
        "yearsWorked":"2016 - Present",
        "city": "Clinton Township",
-       "description": "Design and execute programs specifically tailored for client’s specific goals and needs. Create a welcoming and inviting space for members and clients to feel supported and comfortable.  Inform members and clients of fitness information, execution and practice so that all members are safe and can pursue their health and fitness goals."
+       "description": "Design and execute programs specifically tailored for client’s specific goals and needs. Create a welcoming and inviting space for members and clients to feel supported and comfortable.  Inform members and clients of fitness information, execution and practice so that all members are safe and can pursue their health and fitness goals.",
+       "url":"https://www.baker.edu/campus-locations/michigan/owosso/"
     },
     {"title": "Residence Hall Coordinator",
     "employer": "Baker College, Owosso",
     "yearsWorked": "2013-2014",
     "city": "Owosso",
-    "description":"Supervised and trained a staff of six resident assistants. Worked on diversity training, fire and disaster training and leadership training.  Charged with the day to day functions of the hall, including, addressing parent and resident concerns and working with the Campus Safety Department.  Supervised the Work Study students hired by the department of Residence Life, scheduling a staff of forty students, monitor students ability to follow expectations."
+    "description":"Supervised and trained a staff of six resident assistants. Worked on diversity training, fire and disaster training and leadership training.  Charged with the day to day functions of the hall, including, addressing parent and resident concerns and working with the Campus Safety Department.  Supervised the Work Study students hired by the department of Residence Life, scheduling a staff of forty students, monitor students ability to follow expectations.",
+    "url": "https://www.baker.edu/campus-locations/michigan/owosso/"
 }
        ]  
 } ;
@@ -124,7 +127,7 @@ for (job in work.job){
     var formattedEmployer = HTMLworkEmployer.replace ("%data%", work.job[job].employer);
     var foarmattedTitle =  HTMLworkTitle.replace("%data%", work.job[job].title);
     var formattedEmployerTitle = formattedEmployer + foarmattedTitle;
-
+   
     $(".work-entry:last").append(
         formattedEmployerTitle);
 
@@ -145,6 +148,8 @@ for (job in work.job){
 }
 
 displayWork();
+
+
 
 var school =
        {
@@ -219,6 +224,14 @@ for (course in onlineCourses.courses){
 }
 }
 displayOnline();
+
+var education = {
+    school: [school.city]
+};
+
+var work = {
+    jobs: [work.job.city]
+};
 
 
 $("#mapDiv").append(googleMap);
