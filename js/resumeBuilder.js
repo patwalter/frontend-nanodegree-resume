@@ -94,7 +94,7 @@ projects.display = function(){
 projects.display();
 
 var work = {
-   "job": [
+   "jobs": [
        {"title": "Medical Clerk",
         "employer" : "Beaumont",
         "yearsWorked" : "2014 - Present",
@@ -119,35 +119,37 @@ var work = {
        ]  
 } ;
 
-function displayWork()
-{
-for (job in work.job){
+//function displayWork()
+
+//for (job in work.job){
+    work.jobs.forEach(function(job){
     $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace ("%data%", work.job[job].employer);
-    var foarmattedTitle =  HTMLworkTitle.replace("%data%", work.job[job].title);
+    var formattedEmployer = HTMLworkEmployer.replace ("%data%", job.employer);
+    var foarmattedTitle =  HTMLworkTitle.replace("%data%", job.title);
     var formattedEmployerTitle = formattedEmployer + foarmattedTitle;
    
     $(".work-entry:last").append(
         formattedEmployerTitle);
 
-       var formattedDates = HTMLworkDates.replace("%data%", work.job[job].yearsWorked); 
+       var formattedDates = HTMLworkDates.replace("%data%", job.yearsWorked); 
         
         $(".work-entry:last").append(
             formattedDates);
 
-            var foramttedcity = HTMLworkLocation.replace("%data%", work.job[job].city);
+            var foramttedcity = HTMLworkLocation.replace("%data%", job.city);
 
             $(".work-entry:last").append(
                 foramttedcity);
 
-            var formattedDescription = HTMLworkDescription.replace("%data%", work.job[job].description);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
             $(".work-entry:last").append(
                 formattedDescription);
-}
-}
+    });
 
-displayWork();
+
+
+//displayWork();
 
 
 
