@@ -202,30 +202,29 @@ var onlineCourses = {
 ]
 }
 
-function displayOnline()
-{
-for (course in onlineCourses.courses){
+//function displayOnline(){
+//for (course in onlineCourses.courses){
+    onlineCourses.courses.foreach(function(course){
     $("#education").append(HTMLschoolStart);
-    var formattedClassTitle = HTMLonlineTitle.replace("%data%", onlineCourses.courses[course].title);
+    var formattedClassTitle = HTMLonlineTitle.replace("%data%", course.title);
 
     $(".education-entry:last").append(
         formattedClassTitle);
 
-    var formattedSchool = HTMLonlineSchool.replace("%data%", onlineCourses.courses[course].school);
+    var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
      $(".education-entry:last").append(
          formattedSchool);
 
-    var formattedDates = HTMLonlineDates.replace("%data%", onlineCourses.courses[course].dates); 
+    var formattedDates = HTMLonlineDates.replace("%data%", course.dates); 
      $(".education-entry:last").append(
          formattedDates);
     
-    var formattedUrl = HTMLonlineURL.replace("%data%", onlineCourses.courses[course].url);
+    var formattedUrl = HTMLonlineURL.replace("%data%", course.url);
         $(".education-entry:last").append(
             formattedUrl);
         
-}
-}
-displayOnline();
+    });
+//displayOnline();
 
 var education = {
     school: [school.city]
