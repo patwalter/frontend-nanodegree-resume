@@ -98,21 +98,21 @@ var work = {
        {"title": "Medical Clerk",
         "employer" : "Beaumont",
         "yearsWorked" : "2014 - Present",
-        "city" : "Rochester Hills",
+        "location" : "Rochester Hills",
         "description" : "Support various specialties including internal medicine, geriatrics, thoracic surgery and infectious disease within a single multi-specialty environment, Maintain a smooth patient flow and support within the practice in a manner that is friendly, inviting and focused on patient’s needs and to insure patient satisfaction.  Strong working knowledge of EMR (Epic).  Perform charge entry of CPT and ICD-10 codes.",
-        "url":"https://www.baker.edu/campus-locations/michigan/owosso/"
+        "url":"https://www.beaumont.org/"
        },
        {"title": "Persoanl Trainer",
        "employer": "LA Fitness",
        "yearsWorked":"2016 - Present",
-       "city": "Clinton Township",
+       "location": "Clinton Township",
        "description": "Design and execute programs specifically tailored for client’s specific goals and needs. Create a welcoming and inviting space for members and clients to feel supported and comfortable.  Inform members and clients of fitness information, execution and practice so that all members are safe and can pursue their health and fitness goals.",
-       "url":"https://www.baker.edu/campus-locations/michigan/owosso/"
+       "url":"https://www.lafitness.com/pages/clubhome.aspx?clubid=1037"
     },
     {"title": "Residence Hall Coordinator",
     "employer": "Baker College, Owosso",
     "yearsWorked": "2013-2014",
-    "city": "Owosso",
+    "location": "Owosso",
     "description":"Supervised and trained a staff of six resident assistants. Worked on diversity training, fire and disaster training and leadership training.  Charged with the day to day functions of the hall, including, addressing parent and resident concerns and working with the Campus Safety Department.  Supervised the Work Study students hired by the department of Residence Life, scheduling a staff of forty students, monitor students ability to follow expectations.",
     "url": "https://www.baker.edu/campus-locations/michigan/owosso/"
 }
@@ -125,9 +125,11 @@ var work = {
     work.jobs.forEach(function(job){
     $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace ("%data%", job.employer);
+    var formattedEmployer = HTMLworkEmployer.replace("#", job.url).replace("%data%", job.employer);
     var foarmattedTitle =  HTMLworkTitle.replace("%data%", job.title);
     var formattedEmployerTitle = formattedEmployer + foarmattedTitle;
+   
+   
    
     $(".work-entry:last").append(
         formattedEmployerTitle);
@@ -137,7 +139,7 @@ var work = {
         $(".work-entry:last").append(
             formattedDates);
 
-            var foramttedcity = HTMLworkLocation.replace("%data%", job.city);
+            var foramttedcity = HTMLworkLocation.replace("%data%", job.location);
 
             $(".work-entry:last").append(
                 foramttedcity);
@@ -152,33 +154,19 @@ var work = {
 //displayWork();
 
 
-
-var school =
+var education = {
+ schools: [
        {
         "schoolName": "Central Michigan University",
         "yearsAttended" : "2010-2013",
-        "city" : "Mount Pleasant, MI USA",
+        "location" : "Mount Pleasant, MI USA",
         "degree": " Bachelors of Science",
         "major" : "History",
         "url": "https://go.cmich.edu/",
-       };
-var foramttedSchoolName = HTMLschoolName.replace("%data%", school.schoolName);
-var formattedDates = HTMLschoolDates.replace("%data%", school.yearsAttended);
-var formatedDegree = HTMLschoolDegree.replace("%data%", school.degree)
-var formattedCity = HTMLschoolLocation.replace("%data%", school.city)
-var foarmattedMajor = HTMLschoolMajor.replace("%data%", school.major)
-
-       $("#education").append(HTMLschoolStart);
-       $("#education").append(foramttedSchoolName);
-       $("#education").append(formattedCity);
-       $("#education").append(formatedDegree);
-       $("#education").append(foarmattedMajor);
-       $("#education").append(formattedDates);
-
-
-var onlineCourses = {
-    "courses" :[
-{
+       }
+ ],
+onlineCourses:[
+    {
     "title":"Programming Foundations with Python",
     "school": "Udacity",
     "dates": "April 2017",
@@ -198,13 +186,32 @@ var onlineCourses = {
      "school": "Udacity",
      "dates": "June 2017",
      "url": "https://www.udacity.com/course/javascript-basics--ud804"
- }
-]
-}
+ }]
+};
+var school = education.schools[0]
 
-//function displayOnline(){
-//for (course in onlineCourses.courses){
-    onlineCourses.courses.foreach(function(course){
+var foramttedSchoolName = HTMLschoolName.replace("%data%", school.schoolName);
+var formattedDates = HTMLschoolDates.replace("%data%", school.yearsAttended);
+var formatedDegree = HTMLschoolDegree.replace("%data%", school.degree)
+var formattedCity = HTMLschoolLocation.replace("%data%", school.location)
+var foarmattedMajor = HTMLschoolMajor.replace("%data%", school.major)
+
+       $("#education").append(HTMLschoolStart);
+       $("#education").append(foramttedSchoolName);
+       $("#education").append(formattedCity);
+       $("#education").append(formatedDegree);
+       $("#education").append(foarmattedMajor);
+       $("#education").append(formattedDates);
+
+
+/*var onlineCourses = {
+    "courses" :[
+
+]
+}*/
+
+
+    education.onlineCourses.forEach(function(course){
     $("#education").append(HTMLschoolStart);
     var formattedClassTitle = HTMLonlineTitle.replace("%data%", course.title);
 
@@ -224,15 +231,8 @@ var onlineCourses = {
             formattedUrl);
         
     });
-//displayOnline();
 
-var education = {
-    school: [school.city]
-};
 
-var work = {
-    jobs: [work.job.city]
-};
 
 
 $("#mapDiv").append(googleMap);
