@@ -50,7 +50,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
 
  var projects ={
-    "projects": [
+    "assingments": [
      {"title":"Movie Preview Web Site",
      "dates":"April 2017",
      "description":"A website built with Python that previews movie trailrs for 6 movies.",
@@ -68,30 +68,24 @@ This is empty on purpose! Your code to build the resume will go here.
     }
       ] 
 };
-
-projects.display = function(){
-    for (project in projects.projects){ 
+ 
+        projects.assingments.forEach(function(assingment){
         $("#projects").append(HTMLprojectStart);
 
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", assingment.title);
         $(".project-entry:last").append(formattedTitle);
 
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        var formattedDates = HTMLprojectDates.replace("%data%", assingment.dates);
         $(".project-entry:last").append(formattedDates);
 
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", assingment.description);
         $(".project-entry:last").append(formattedDescription);
 
-        if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images){
-                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+           var formattedImage = HTMLprojectImage.replace("%data%", assingment.images);
                 $(".project-entry:last").append(formattedImage);
-            }
-        }
-    }
-}
 
-projects.display();
+        });
+
 
 var work = {
    "jobs": [
