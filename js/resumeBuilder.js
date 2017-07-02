@@ -2,7 +2,7 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
- var role = "Web Developer"
+ var role = "Web Developer";
 
  var foarmattedRole = HTMLheaderRole.replace("%data%", role);
  $("#header").prepend(foarmattedRole);
@@ -10,37 +10,35 @@ This is empty on purpose! Your code to build the resume will go here.
  var formattedName = HTMLheaderName.replace("%data%", "Pat Walter");
  $("#header").prepend(formattedName);
 
-
  var bio = {
      "name": "Pat Walter",
      "role": "Web Developer",
-     "contact": {
+     "contacts": {
          "email":"patwalter@mac.com", 
          "mobile": "586-382-6390",
          "github": "patwalter",
          "location": "Detroit MI, USA",
         },
-    "welcomeMesg":"Welcome to Pat Walter's interactive application!  Feel free to look around and contact Pat for any further information you may require!",
+    "welcomeMessage":"Welcome to Pat Walter's interactive application!  Feel free to look around and contact Pat for any further information you may require!",
     "skills": [
         "HTML5 ", " CSS3 " , " JavaScript ", " Github "
     ],
      "biopic": "images/patteddy.png"
  };
 
+     formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+     formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+     formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+     formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+     formattedpic = HTMLbioPic.replace("%data%", bio.biopic);
+     formattedSkills = HTMLskills.replace("%data%", bio.skills);
+     formattedWelcome =  HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-   
-     formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
-     formattedmobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-     formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
-     formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
-    formattedpic = HTMLbioPic.replace("%data%", bio.biopic)
-    formattedSkills = HTMLskills.replace("%data%", bio.skills);
-    formattedWelcome =  HTMLwelcomeMsg.replace("%data%", bio.welcomeMesg)
 
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedmobile);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedLocation);
+    $("#topContacts, #footerContacts").append(formattedEmail);
+    $("#topContacts, #footerContacts").append(formattedmobile);
+    $("#topContacts, #footerContacts").append(formattedGithub);
+    $("#topContacts, #footerContacts").append(formattedLocation);
    $("#topContacts").prepend(formattedpic);
    $("#topContacts").append(formattedWelcome);
 
@@ -49,8 +47,9 @@ This is empty on purpose! Your code to build the resume will go here.
    $("#topContacts").append(formattedSkills);
 
 
- var projects ={
-    "assingments": [
+
+ var assingments ={
+    "projects": [
      {"title":"Movie Preview Web Site",
      "dates":"April 2017",
      "description":"A website built with Python that previews movie trailrs for 6 movies.",
@@ -69,19 +68,19 @@ This is empty on purpose! Your code to build the resume will go here.
       ] 
 };
  
-        projects.assingments.forEach(function(assingment){
+        assingments.projects.forEach(function(project){
         $("#projects").append(HTMLprojectStart);
 
-        var formattedTitle = HTMLprojectTitle.replace("%data%", assingment.title);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
         $(".project-entry:last").append(formattedTitle);
 
-        var formattedDates = HTMLprojectDates.replace("%data%", assingment.dates);
+        var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
         $(".project-entry:last").append(formattedDates);
 
-        var formattedDescription = HTMLprojectDescription.replace("%data%", assingment.description);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
         $(".project-entry:last").append(formattedDescription);
 
-           var formattedImage = HTMLprojectImage.replace("%data%", assingment.images);
+           var formattedImage = HTMLprojectImage.replace("%data%", project.images);
                 $(".project-entry:last").append(formattedImage);
 
         });
@@ -91,21 +90,21 @@ var work = {
    "jobs": [
        {"title": "Medical Clerk",
         "employer" : "Beaumont",
-        "yearsWorked" : "2014 - Present",
+        "dates" : "2014 - Present",
         "location" : "Rochester Hills",
         "description" : "Support various specialties including internal medicine, geriatrics, thoracic surgery and infectious disease within a single multi-specialty environment, Maintain a smooth patient flow and support within the practice in a manner that is friendly, inviting and focused on patient’s needs and to insure patient satisfaction.  Strong working knowledge of EMR (Epic).  Perform charge entry of CPT and ICD-10 codes.",
         "url":"https://www.beaumont.org/"
        },
        {"title": "Persoanl Trainer",
        "employer": "LA Fitness",
-       "yearsWorked":"2016 - Present",
+       "dates":"2016 - Present",
        "location": "Clinton Township",
        "description": "Design and execute programs specifically tailored for client’s specific goals and needs. Create a welcoming and inviting space for members and clients to feel supported and comfortable.  Inform members and clients of fitness information, execution and practice so that all members are safe and can pursue their health and fitness goals.",
        "url":"https://www.lafitness.com/pages/clubhome.aspx?clubid=1037"
     },
     {"title": "Residence Hall Coordinator",
     "employer": "Baker College, Owosso",
-    "yearsWorked": "2013-2014",
+    "dates": "2013-2014",
     "location": "Owosso",
     "description":"Supervised and trained a staff of six resident assistants. Worked on diversity training, fire and disaster training and leadership training.  Charged with the day to day functions of the hall, including, addressing parent and resident concerns and working with the Campus Safety Department.  Supervised the Work Study students hired by the department of Residence Life, scheduling a staff of forty students, monitor students ability to follow expectations.",
     "url": "https://www.baker.edu/campus-locations/michigan/owosso/"
@@ -113,9 +112,7 @@ var work = {
        ]  
 } ;
 
-//function displayWork()
 
-//for (job in work.job){
     work.jobs.forEach(function(job){
     $("#workExperience").append(HTMLworkStart);
 
@@ -128,7 +125,7 @@ var work = {
     $(".work-entry:last").append(
         formattedEmployerTitle);
 
-       var formattedDates = HTMLworkDates.replace("%data%", job.yearsWorked); 
+       var formattedDates = HTMLworkDates.replace("%data%", job.dates); 
         
         $(".work-entry:last").append(
             formattedDates);
@@ -145,17 +142,16 @@ var work = {
 
 
 
-//displayWork();
 
 
 var education = {
  schools: [
        {
-        "schoolName": "Central Michigan University",
-        "yearsAttended" : "2010-2013",
+        "name": "Central Michigan University",
+        "dates" : "2010-2013",
         "location" : "Mount Pleasant, MI USA",
         "degree": " Bachelors of Science",
-        "major" : "History",
+        "majors" : ["History"],
         "url": "https://go.cmich.edu/",
        }
  ],
@@ -182,17 +178,17 @@ onlineCourses:[
      "url": "https://www.udacity.com/course/javascript-basics--ud804"
  }]
 };
-var school = education.schools[0]
+var school = education.schools[0];
 
 education.schools.forEach(function(school){
      $("#education").append(HTMLschoolStart);
 
-var foramttedSchoolName = HTMLschoolName.replace("%data%", school.schoolName);
+var foramttedSchoolName = HTMLschoolName.replace("%data%", school.name);
 $(".education-entry:last").append(
     foramttedSchoolName);
 
 
-var formattedDates = HTMLschoolDates.replace("%data%", school.yearsAttended);
+var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
 $(".education-entry:last").append(
     formattedDates);
 
@@ -204,7 +200,7 @@ var formattedCity = HTMLschoolLocation.replace("%data%", school.location);
 $(".education-entry:last").append(
     formattedCity);
 
-var foarmattedMajor = HTMLschoolMajor.replace("%data%", school.major);
+var foarmattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
 $(".education-entry:last").append(
     foarmattedMajor);
 
