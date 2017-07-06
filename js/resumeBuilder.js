@@ -2,13 +2,10 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
- var role = "Web Developer";
+ //var role = "Web Developer";
 
- var foarmattedRole = HTMLheaderRole.replace("%data%", role);
- $("#header").prepend(foarmattedRole);
 
- var formattedName = HTMLheaderName.replace("%data%", "Pat Walter");
- $("#header").prepend(formattedName);
+
 
  var bio = {
      "name": "Pat Walter",
@@ -25,6 +22,14 @@ This is empty on purpose! Your code to build the resume will go here.
     ],
      "biopic": "images/patteddy.png"
  };
+
+bio.display = function(){
+
+ var foarmattedRole = HTMLheaderRole.replace("%data%", bio.role);
+ $("#header").prepend(foarmattedRole);
+
+ var formattedName = HTMLheaderName.replace("%data%", "Pat Walter");
+ $("#header").prepend(formattedName);
 
      formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
      formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -45,10 +50,13 @@ This is empty on purpose! Your code to build the resume will go here.
 
    $("#topContacts").append(HTMLskillsStart);
    $("#topContacts").append(formattedSkills);
+};
+
+bio.display();
 
 
 
- var assingments ={
+ var projects ={
     "projects": [
      {"title":"Movie Preview Web Site",
      "dates":"April 2017",
@@ -68,7 +76,8 @@ This is empty on purpose! Your code to build the resume will go here.
       ] 
 };
  
-        assingments.projects.forEach(function(project){
+ projects.display = function(){
+        projects.projects.forEach(function(project){
         $("#projects").append(HTMLprojectStart);
 
         var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
@@ -84,6 +93,9 @@ This is empty on purpose! Your code to build the resume will go here.
                 $(".project-entry:last").append(formattedImage);
 
         });
+};
+
+projects.display();
 
 
 var work = {
@@ -112,6 +124,7 @@ var work = {
        ]  
 } ;
 
+work.display = function(){
 
     work.jobs.forEach(function(job){
     $("#workExperience").append(HTMLworkStart);
@@ -139,7 +152,9 @@ var work = {
             $(".work-entry:last").append(
                 formattedDescription);
     });
+};
 
+work.display();
 
 
 
@@ -178,7 +193,9 @@ onlineCourses:[
      "url": "https://www.udacity.com/course/javascript-basics--ud804"
  }]
 };
-var school = education.schools[0];
+
+
+education.display = function(){
 
 education.schools.forEach(function(school){
      $("#education").append(HTMLschoolStart);
@@ -228,6 +245,9 @@ $(".education-entry:last").append(
             formattedUrl);
         
     });
+};
+
+education.display();
 
 
 
